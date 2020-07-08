@@ -7,34 +7,36 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Models\AbstractBaseModel;
 
-class Player extends AbstractBaseModel
+class Employee extends AbstractBaseModel
 {
     const SORT = 'created_at';
 
     const FIELDS = [
         'uuid',
-        'player_id',
+        'last_name',
         'first_name',
-        'second_name',
-        'form',
-        'total_points',
-        'influence',
-        'creativity',
-        'threat',
-        'ict_index'
+        'middle_name',
+        'nick_name',
+        'department',
+        'position',
+        'birth_date',
+        'hired_date',
+        'email_address',
+        'status'
     ];
 
     protected $fillable = [
         'uuid',
-        'player_id',
+        'last_name',
         'first_name',
-        'second_name',
-        'form',
-        'total_points',
-        'influence',
-        'creativity',
-        'threat',
-        'ict_index'
+        'middle_name',
+        'nick_name',
+        'department',
+        'position',
+        'birth_date',
+        'hired_date',
+        'email_address',
+        'status'
     ];
 
     protected $hidden = [

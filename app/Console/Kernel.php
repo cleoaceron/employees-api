@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
-use App\Console\Commands\ScheduleSyncPlayers;
+use App\Console\Commands\ScheduleSyncEmployees;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ScheduleSyncPlayers::class
+        ScheduleSyncEmployees::class
     ];
 
     /**
@@ -25,6 +25,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('dispatch:sync_players')->everyMinute();
+        $schedule->command('dispatch:sync_employees')->everyMinute();
     }
 }

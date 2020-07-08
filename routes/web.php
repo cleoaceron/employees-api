@@ -15,13 +15,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(["prefix" => "admin"], function() use ($router) {
+$router->group(["prefix" => "employees"], function() use ($router) {
 
-	$router->group(["prefix" => "players"], function() use ($router) {
+	$router->post("add", ["as" => "employees.add", "uses" => "EmployeesController@addEmployee"]);
 
-		$router->get("view/{uuid}", ["as" => "admin.players.view", "uses" => "PlayersController@viewPlayer"]);
-		$router->post("list[/{page:\d+}]", ["as" => "admin.players.list", "uses" => "PlayersController@getPlayerList"]);
+	$router->post("update/{uuid}", ["as" => "employees.update", "uses" => "EmployeesController@updateEmployee"]);
 
-	});
+	$router->get("view/{uuid}", ["as" => "employees.view", "uses" => "EmployeesController@viewEmployee"]);
+
+	$router->post("list[/{page:\d+}]", ["as" => "employees.list", "uses" => "EmployeesController@getEmployeeList"]);
+
 
 });

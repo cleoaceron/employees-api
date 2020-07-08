@@ -11,17 +11,18 @@
 |
 */
 
-$factory->define(App\Models\Player::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Employee::class, function (Faker\Generator $faker) {
     return [
-    	'uuid' => $faker->uuid,
-    	'player_id' => $faker->playerId,
-        'first_name' => $faker->firstName,
-        'second_name' => $faker->secondName,
-        'form' => $faker->form,
-        'total_points' => $faker->totalPoints,
-        'influence' => $faker->influence,
-        'creativity' => $faker->creativity,
-        'threat' => $faker->date,
-        'ict_index' => $faker->date
+    	"uuid" => $faker->uuid,
+    	"last_name" => $faker->last_name,
+        "first_name" => $faker->first_name,
+        "middle_name" => $faker->middle_name,
+        "nick_name" => $faker->nick_name,
+        "department" => $faker->department,
+        "position" => $faker->position,
+        "birth_date" => $faker->birth_date,
+        "hired_date" => $faker->hired_date,
+        "email_address" => $faker->email_address,
+        "status" => $faker->status
     ];
 });

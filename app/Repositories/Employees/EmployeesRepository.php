@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Repositories\Players;
+namespace App\Repositories\Employees;
 
 use App\Repositories\AbstractBaseRepository;
-use App\Models\Player as Model;
+use App\Models\Employee as Model;
 use DB;
 
-class PlayersRepository extends AbstractBaseRepository {
+class EmployeesRepository extends AbstractBaseRepository {
 
 	protected $searchFields = [
         'uuid',
-        'player_id',
+        'last_name',
         'first_name',
-        'second_name',
-        'form',
-        'total_points',
-        'influence',
-        'creativity',
-        'threat',
-        'ict_index'
+        'middle_name',
+        'nick_name',
+        'department',
+        'position',
+        'birth_date',
+        'hired_date',
+        'email_address',
+        'status'
 	];
 
     public function __construct(Model $model) {
@@ -34,10 +35,10 @@ class PlayersRepository extends AbstractBaseRepository {
             $items = $items->where(function ($query) use ($request) {
             	foreach( $this->searchFields as $key => $field ){
             		if( $key == 0 ){
-            			$query->where('players.'.$field, 'like', '%' . $request['keyword'] . '%');
+            			$query->where('employees.'.$field, 'like', '%' . $request['keyword'] . '%');
             		}
             		else{
-            			$query->orWhere('players.'.$field, 'like', '%' . $request['keyword'] . '%');
+            			$query->orWhere('employees.'.$field, 'like', '%' . $request['keyword'] . '%');
             		}
             	}
             });

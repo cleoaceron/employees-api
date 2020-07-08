@@ -77,7 +77,7 @@ $app->singleton(
 */
 
 $app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\PlayersServiceProvider::class);
+$app->register(App\Providers\EmployeesServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
