@@ -26,6 +26,6 @@
 
 # How to run API Testing?
 
-- phpunit
+- phpunit --filter {EmployeeTest}
 
 Thank you!

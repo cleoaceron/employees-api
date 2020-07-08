@@ -14,15 +14,15 @@
 $factory->define(App\Models\Employee::class, function (Faker\Generator $faker) {
     return [
     	"uuid" => $faker->uuid,
-    	"last_name" => $faker->last_name,
-        "first_name" => $faker->first_name,
-        "middle_name" => $faker->middle_name,
-        "nick_name" => $faker->nick_name,
-        "department" => $faker->department,
-        "position" => $faker->position,
-        "birth_date" => $faker->birth_date,
-        "hired_date" => $faker->hired_date,
-        "email_address" => $faker->email_address,
-        "status" => $faker->status
+    	"last_name" => $faker->lastName,
+        "first_name" => $faker->firstName,
+        "middle_name" => $faker->word,
+        "nick_name" => $faker->word,
+        "department" => $faker->word,
+        "position" => $faker->word,
+        "birth_date" => $faker->date,
+        "hired_date" => $faker->date,
+        "email_address" => $faker->email,
+        "status" => $faker->randomDigit
     ];
 });
