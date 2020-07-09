@@ -15,7 +15,9 @@ class EmployeesService extends AbstractBaseService implements EmployeesInterface
     protected $repository;
     protected $request;
 
-    const PERPAGE = 10;
+    const PERPAGE = 500;
+    const SORT_FIELD = 'id';
+    const SORT_NAME = 'desc';
 
     public function __construct(Request $request, Repository $repository) 
     {
@@ -76,7 +78,7 @@ class EmployeesService extends AbstractBaseService implements EmployeesInterface
      */
     public function getEmployeeList($request, $page) 
     {
-        $list = $this->repository->paginate($request, static::PERPAGE, $page);
+        $list = $this->repository->paginate($request, static::PERPAGE, $page, static::SORT_FIELD, static::SORT_NAME);
         $this->response = $this->makeResponse(200, 'list_employees.200');
         
         $this->response->list = $list->list;

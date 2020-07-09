@@ -26,7 +26,7 @@ class EmployeesRepository extends AbstractBaseRepository {
         parent::__construct($model);
     }
 
-    public function paginate($request, $perpage, $page) {
+    public function paginate($request, $perpage, $page, $sort_field, $sort_name) {
         
         $items = $this->model;
 
@@ -42,6 +42,10 @@ class EmployeesRepository extends AbstractBaseRepository {
             		}
             	}
             });
+        }
+
+        if (isset($sort_field) && isset($sort_name)) {
+            $items = $items->orderBy($sort_field, $sort_name);
         }
         
         return $this->model::paginate($items, $perpage, $page);
